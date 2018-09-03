@@ -1,8 +1,8 @@
 import * as React from 'react';
+import Button from '../../components/UI/Button/Button';
 import * as classes from './App.scss';
-
 interface IProps {
-  title: number
+  title: string
 }
 
 interface IState {
@@ -13,6 +13,7 @@ class App extends React.Component<IProps, IState> {
   public state = {
     counter: 0
   };
+
   public render() {
     const {title} = this.props;
     return (
@@ -22,10 +23,21 @@ class App extends React.Component<IProps, IState> {
         </header>
         <p className={classes.AppIntro}>
           To get started, edit <code>src/App.tsx</code> and save to reload.
+          <Button label='add' handleClick={this.btnIncrementHandler}/>
+          {this.state.counter}
         </p>
       </div>
     );
   }
+
+  private btnIncrementHandler = () => {
+    this.setState((prevState) => {
+      return {
+        counter: prevState.counter + 1
+      }
+    });
+  }
+
 }
 
 export default App;
