@@ -1,5 +1,5 @@
+import Button from 'components/UI/Button/Button';
 import * as React from 'react';
-import Button from '../../components/UI/Button/Button';
 import * as classes from './App.scss';
 interface IProps {
   title: string
